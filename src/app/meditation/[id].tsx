@@ -14,12 +14,19 @@ import {
 
 export default function MeditationDetails() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const { top } = useSafeAreaInsets();
+
   const meditation = meditations.find((m) => m.id === Number(id));
 
   const player = useAudioPlayer(audio);
   const status = useAudioPlayerStatus(player);
 
-  const { top } = useSafeAreaInsets();
+  const formatSeconds = (milliseconds: number) => {
+    const minutes = Math.floor(milliseconds / 60000);
+    const seconds = Math.floor((milliseconds % 60000) / 1000);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
   if (!meditation) return <Text>Meditation not found</Text>;
 
   return (
@@ -68,7 +75,10 @@ export default function MeditationDetails() {
         {/* playback indicator */}
         <Slider
           style={{ width: "100%", height: 38 }}
-          onSlidingComplete={(value) => console.log(value)}
+          value={status.currentTime / status.duration}
+          onSlidingComplete={(value) => {
+            player.seekTo(value * status.duration);
+          }}
           minimumValue={0}
           maximumValue={1}
           minimumTrackTintColor="#3A3937"
@@ -76,8 +86,8 @@ export default function MeditationDetails() {
           thumbTintColor="#3A3937"
         />
         <View className="flex-row justify-between">
-          <Text>3:02</Text>
-          <Text>13:22</Text>
+          <Text>{formatSeconds(status.currentTime)}</Text>
+          <Text>{formatSeconds(status.duration)}</Text>
         </View>
       </View>
     </SafeAreaView>
