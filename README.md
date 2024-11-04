@@ -2,8 +2,8 @@
 
 This is a lightweight copy of the Headspace app. Playing around with the latest Expo SDK, navigation using `expo-router`, simple animations using `react-native-reanimated`, playing music using the new `expo-audio` api.
 
-![screenshot of the homepage](./assets/images/screenshot-homepage.png)
-![screenshot of the music page](./assets/images/screenshot-music.png)
+<img src="./assets/images/screenshot-homepage.png" alt="screenshot of the homepage" width="400" />
+<img src="./assets/images/screenshot-music.png" alt="screenshot of the music screen" width="400" />
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
