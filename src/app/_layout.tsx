@@ -5,7 +5,7 @@ import "../../global.css";
 export default function RootLayout() {
   return (
     <Stack>
-      <Stack.Screen name="index" options={{ title: "Meditations" }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
         name="meditation/[id]"
         options={{ headerShown: false, animation: "slide_from_bottom" }}
