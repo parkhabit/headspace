@@ -1,16 +1,16 @@
 import { Text, View, Pressable } from "react-native";
-import { useLocalSearchParams, router, Link } from "expo-router";
+import { useLocalSearchParams, router } from "expo-router";
 import { useAudioPlayer, useAudioPlayerStatus } from "expo-audio";
 import FeatherIcon from "@expo/vector-icons/Feather";
 import Slider from "@react-native-community/slider";
-
-import { meditations } from "@/data";
-import audio from "../../../assets/meditations/audio1.mp3";
-
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
+
+import { meditations } from "@/data";
+import audio from "../../../assets/meditations/audio1.mp3";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 export default function MeditationDetails() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -31,6 +31,7 @@ export default function MeditationDetails() {
 
   return (
     <SafeAreaView className="bg-orange-400 flex-1 p-2 justify-between">
+      <AnimatedBackground />
       <View className="flex-1">
         <View
           className="flex-row justify-between items-center p-5"

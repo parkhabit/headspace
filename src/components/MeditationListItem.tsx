@@ -12,8 +12,15 @@ export function MeditationListItem({ meditation }: { meditation: Meditation }) {
           <FeatherIcon name="check" size={16} color="white" />
         </View>
 
-        <View className="flex-1 p-5 border-2 border-gray-300 rounded-2xl">
+        <View className="flex-1 p-5  bg-neutral-100 rounded-2xl">
           <Text className="font-semibold text-xl mb-2">{meditation.title}</Text>
+
+          <View className="flex-row items-center gap-2 pb-2">
+            <FeatherIcon name="volume-2" size={16} color="dimgray" />
+            <Text className="font-bold text-orange-600">
+              {meditation.subtitle}
+            </Text>
+          </View>
 
           <View className="flex-row items-center gap-2">
             <FeatherIcon name="clock" size={16} color="dimgray" />
